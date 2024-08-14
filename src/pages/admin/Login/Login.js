@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { dummyUsers } from "../../../data/dummyUsers";
 import { FaHome, FaEye, FaEyeSlash } from "react-icons/fa";
@@ -10,6 +10,14 @@ const Login = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false); // State for password visibility
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if user is already authenticated
+    const isAuthenticated = localStorage.getItem("isAuthenticated");
+    if (isAuthenticated) {
+      navigate("/admin"); // Redirect to admin if already logged in
+    }
+  }, [navigate]);
 
   const handleLogin = (e) => {
     e.preventDefault();

@@ -1,11 +1,26 @@
-/* Footer.css */
-footer {
-  background-color: #025b6c; /* Match your theme color */
-  color: #fff;
-  padding: 1rem 2rem;
+/* src/components/admin/Footer/Footer.css */
+.footer {
+  padding: 15px;
   text-align: center;
+  background-color: var(
+    --primary-color
+  ); /* Optional: Set background color to primary color */
+  color: #fff; /* Text color */
 }
 
-p {
+.footer p {
   margin: 0;
+  font-size: 14px;
+  font-weight: bold; /* Make the text bold */
+}
+
+.footer a {
+  color: #ccc; /* Set the link color to #666 */
+  text-decoration: none;
+  margin-left: 5px; /* Space between text and link */
+  font-weight: bold; /* Make the link bold */
+}
+
+.footer a:hover {
+  color: #999;
 }

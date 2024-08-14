@@ -1,17 +1,23 @@
+// src/components/admin/Footer/Footer.js
 import React from "react";
-import "./Footer.css"; // Import CSS for Admin Footer
-import { NavLink } from "react-router-dom";
-import { FaHome } from "react-icons/fa";
+import "./Footer.css"; // Import the CSS file for styling
 
-const AdminFooter = () => {
+const Footer = () => {
   return (
-    <footer>
-      <p>Admin Footer</p>
-      {/* Admin footer content */}
-
-      {/* Add more header content here */}
+    <footer className="footer">
+      <p>
+        © {new Date().getFullYear()}
+        <a
+          href="https://theinfines.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          theinfines.com
+        </a>
+        . All rights reserved.
+      </p>
     </footer>
   );
 };
 
-export default AdminFooter;
+export default Footer;

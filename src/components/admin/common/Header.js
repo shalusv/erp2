@@ -58,6 +58,7 @@ const Header = ({ isCollapsed }) => {
 
   // Handle logout
   const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
     navigate("/admin/login");
   };
 

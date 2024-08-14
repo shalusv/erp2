@@ -1,0 +1,19 @@
+/* src/components/admin/common/PageTitle.css */
+.page-title-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.page-title {
+  margin: 0;
+  padding: 10px;
+  border: 1px solid;
+  border-left: 6px solid;
+  border-color: var(--secondary-color);
+  border-radius: 10px; /* Rounded left side corners */
+  font-size: 24px; /* Adjust font size as needed */
+  color: var(--primary-color); /* Text color */
+  font-weight: bold; /* Bold text */
+  flex-grow: 1; /* Allow title to take up remaining space */
+}

@@ -1,15 +1,12 @@
 import React from "react";
 import "./Users.css"; // Import CSS for Dashboard
 import { NavLink } from "react-router-dom";
+import PageTitle from "../../../components/admin/common/PageTitle/PageTitle";
 
 const Users = () => {
   return (
     <div>
-      <h1>Admin Users</h1>
-      {/* Users content */}
-      {/* <NavLink to="/admin/employees" className="test_link">
-        <span className="text">Employees</span>
-      </NavLink> */}
+      <PageTitle title="Users" />
     </div>
   );
 };

@@ -145,3 +145,10 @@
   background-color: var(--button-hover-bg-color);
   border-color: var(--button-hover-border-color);
 }
+
+/* Hide the toggle button below 500px */
+@media (max-width: 500px) {
+  .toggle-btn {
+    display: none;
+  }
+}
