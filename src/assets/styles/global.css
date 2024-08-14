@@ -1,0 +1,55 @@
+.temp-btn {
+  background-color: rgb(177, 162, 162);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: solid 3px #0f75bc;
+}
+
+.temp-btn .link {
+  color: #0f75bc;
+}
+.temp-btn:hover {
+  background-color: #0f75bc;
+}
+
+.temp-btn .link:hover {
+  color: #fff;
+}
+
+.temp-button.dashboard {
+  background-color: rgb(177, 162, 162);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: solid 3px #0f75bc;
+}
+
+.temp-button.dashboard .link {
+  color: #0f75bc;
+}
+.temp-btn.dashboard:hover {
+  background-color: #0f75bc;
+}
+
+.temp-button.dashboard .link:hover {
+  color: #fff;
+}
+
+.test_link {
+  position: fixed;
+  top: 170px;
+  right: 210px;
+  z-index: 1000;
+}

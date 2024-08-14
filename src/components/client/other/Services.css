@@ -1,0 +1,25 @@
+/* Services Section Styles */
+
+.services {
+  padding: 2rem;
+  background-color: #ffffff;
+}
+
+.services h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.services .service-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.service-box .box {
+  flex: 1 1 calc(33.333% - 1rem);
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+}

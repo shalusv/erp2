@@ -1,0 +1,4 @@
+<NavLink to="/" className="link">
+            <FaHome className="home-icon" />
+          </NavLink>
+          

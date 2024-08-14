@@ -1,0 +1,133 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../../../assets/images/admin/backgrounds/bg-login.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.login-box {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Slight transparency for readability */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.home-icon {
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.home-icon:hover {
+  color: var(--icon-hover-color-special);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  color: #333333;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  font-size: 14px;
+  color: #333333;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #025b6c;
+  outline: none;
+}
+
+.password-group {
+  position: relative;
+}
+
+.password-container {
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 60%;
+  transform: translateY(-50%);
+  color: var(--icon-color);
+  font-size: 18px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  background-color: var(--button-color);
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: var(--button-hover-bg-color-speacial);
+}
+
+.error-container {
+  height: 30px; /* Fixed height for error message container */
+  overflow: hidden;
+  margin-top: 15px;
+  position: relative;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin: 0;
+  transition: opacity 0.5s ease;
+}
+
+.error-container.hidden {
+  opacity: 0;
+}
+
+.error-container.visible {
+  opacity: 1;
+}

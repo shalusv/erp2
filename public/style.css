@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #0f75bc;
+  --secondary-color: #00aeef;
+  --white: #fff;
+  --title-color: #818186;
+  --heading-color: #7a7777;
+
+  --link-color: #fff;
+  --link-bg-color: #333;
+  --link-border-color: #fff;
+
+  --link-hover-color: #fff;
+  --link-hover-border-color: #00497e;
+  --link-hover-bg-color: #00497e;
+
+  --link-active-color: #fff;
+  --link-active-border-color: #00497e;
+  --link-active-bg-color: #666;
+
+  --button-color: #0f75bc;
+  --button-bg-color: #fff;
+  --button-border-color: #0f75bc;
+  --button-hover-color: #fff;
+  --button-hover-bg-color: #0f75bc;
+  --button-hover-bg-color-speacial: #00aeef;
+  --button-hover-border-color: #0f75bc;
+
+  --icon-color: #0f75bc;
+  --icon-bg-color: #fff;
+  --icon-border-color: #0f75bc;
+  --icon-hover-color: #fff;
+  --icon-hover-color-special: #00aeef;
+  --icon-hover-bg-color: #0f75bc;
+  --icon-hover-border-color: #0f75bc;
+
+  --separator-color: #ced1d3;
+
+  /* heights */
+
+  --header-height: 60px;
+  --header-height-collapsed: 60px;
+  --side-header-height: 60px;
+  --side-header-height-collapsed: 60px;
+  --logo-height: 40px;
+  --logo-height-collapsed: 40px;
+  --footer-height: 50px;
+  --link-height: 40px;
+  --link-height-collapsed: 30px;
+
+  /* widths */
+
+  --sidebar-width: 200px;
+  --sidebar-width-collapsed: 60px;
+  --margin-main-content: 200px;
+  --margin-main-content-collapsed: 80px;
+}

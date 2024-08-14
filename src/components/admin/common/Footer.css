@@ -1,0 +1,11 @@
+/* Footer.css */
+footer {
+  background-color: #025b6c; /* Match your theme color */
+  color: #fff;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+p {
+  margin: 0;
+}

@@ -1,0 +1,147 @@
+/* General Styles */
+.sidebar-wrapper {
+  width: var(--sidebar-width); /* Default width */
+  background-color: var(--white);
+  color: white;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: visible; /* Ensure overflow is visible */
+  transition: width 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for width and shadow */
+  padding: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add box-shadow */
+  z-index: 1000; /* Ensure sidebar is on top of other content */
+}
+
+.sidebar-wrapper.collapsed {
+  width: var(--sidebar-width-collapsed);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Reduced shadow for collapsed state */
+}
+
+.sidebar-header {
+  padding: 8px;
+  text-align: center;
+  transition: padding 0.3s ease; /* Smooth transition for padding */
+}
+
+.sidebar-header img {
+  height: var(--logo-height); /* Ensure both logos have the same height */
+  transition: height 0.3s ease; /* Smooth transition for logo height */
+}
+
+.sidebar-wrapper.collapsed .sidebar-header img {
+  height: var(
+    --logo-height-collapsed
+  ); /* Adjusted height for collapsed state */
+}
+
+.sidebar-menu {
+  margin-top: 20px;
+  padding-right: 5px;
+  padding: 0 5px;
+  list-style: none;
+}
+
+.sidebar-item {
+  width: 100%;
+  list-style: none;
+  overflow: hidden; /* Ensure content does not overflow */
+  margin-bottom: 5px;
+  position: relative; /* Position relative to handle absolute tooltip positioning */
+}
+
+.sidebar-item .sidebar-link {
+  display: flex;
+  align-items: center;
+  height: var(--link-height);
+  text-decoration: none;
+  font-weight: 500;
+  border: thin solid var(--link-border-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
+  border-radius: 0 8px 8px 0;
+  color: var(--link-color);
+  background-color: var(--link-bg-color);
+}
+
+.sidebar-item .sidebar-link.active {
+  color: var(--link-active-color);
+  background-color: var(--link-active-bg-color);
+  border: var(--link-active-border-color);
+}
+
+.sidebar-item .sidebar-link:hover {
+  color: var(--link-hover-color);
+  background-color: var(--link-hover-bg-color);
+  border: var(--link-hover-border-color);
+}
+
+/* Icon and text styles */
+.sidebar-item .icon {
+  width: 40px;
+}
+
+.sidebar-item .text {
+  flex-grow: 1;
+  transition: opacity 0.3s ease, width 0.3s ease; /* Smooth transition for text opacity and width */
+}
+
+.sidebar-wrapper.collapsed .sidebar-item .text {
+  opacity: 0.3; /* Hide text in collapsed state */
+  width: 0; /* Collapse text width */
+  padding-left: 0; /* Remove padding when collapsed */
+  transition: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  display: none; /* Hide the text to prevent flickering */
+}
+
+/* Tooltip Styles */
+.sidebar-item .tooltip {
+  display: none;
+  position: absolute;
+  left: 60px; /* Adjust this value to properly align the tooltip */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 2000; /* Ensure tooltip is above all other elements */
+}
+
+.sidebar-wrapper.collapsed .sidebar-item:hover .tooltip {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Toggle button styles */
+.toggle-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: solid 3px;
+  color: var(--button-color);
+  background-color: var(--button-bg-color);
+  border-color: var(--button-border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-btn:hover {
+  color: var(--button-hover-color);
+  background-color: var(--button-hover-bg-color);
+  border-color: var(--button-hover-border-color);
+}
