@@ -8,7 +8,8 @@
 # testing
 /coverage
 
-# production
+# productiongit commit -m "Initial commit after reset"
+
 /build
 
 # misc

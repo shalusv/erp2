@@ -89,7 +89,7 @@ const Header = ({ isCollapsed }) => {
       <div className="header-right">
         <div className="link-section">
           <NavLink to="/" className="link">
-            <FaHome className="icon" />
+            <FaHome className="home-icon" />
           </NavLink>
         </div>
         <div className="search-container" ref={searchContainerRef}>
