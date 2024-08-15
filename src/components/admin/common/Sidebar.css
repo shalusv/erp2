@@ -1,7 +1,7 @@
 /* General Styles */
 .sidebar-wrapper {
   width: var(--sidebar-width); /* Default width */
-  background-color: var(--white);
+  background-color: var(--sidebar-bg-color);
   color: white;
   height: 100vh;
   position: fixed;
@@ -38,8 +38,7 @@
 
 .sidebar-menu {
   margin-top: 20px;
-  padding-right: 5px;
-  padding: 0 5px;
+  padding: 0 10px;
   list-style: none;
 }
 
@@ -47,7 +46,7 @@
   width: 100%;
   list-style: none;
   overflow: hidden; /* Ensure content does not overflow */
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   position: relative; /* Position relative to handle absolute tooltip positioning */
 }
 
@@ -57,10 +56,10 @@
   height: var(--link-height);
   text-decoration: none;
   font-weight: 500;
-  border: thin solid var(--link-border-color);
+  /* border: thin solid var(--link-border-color); */
   transition: background-color 0.3s ease, color 0.3s ease;
   width: 100%;
-  border-radius: 0 8px 8px 0;
+  border-radius: 5px;
   color: var(--link-color);
   background-color: var(--link-bg-color);
 }
@@ -95,6 +94,10 @@
   display: none; /* Hide the text to prevent flickering */
 }
 
+.sidebar-wrapper.collapsed .sidebar-item:hover {
+  overflow: visible; /* Allow overflow to be visible */
+}
+
 /* Tooltip Styles */
 .sidebar-item .tooltip {
   display: none;
@@ -102,7 +105,7 @@
   left: 60px; /* Adjust this value to properly align the tooltip */
   top: 50%;
   transform: translateY(-50%);
-  background-color: #333;
+  background-color: #666;
   color: #fff;
   padding: 5px 10px;
   border-radius: 4px;

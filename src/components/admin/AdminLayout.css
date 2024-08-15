@@ -54,7 +54,7 @@
 .content-wrapper {
   flex-grow: 1;
   margin-top: 60px; /* Offset by header height */
-  padding: 20px;
+  padding: 15px;
 }
 
 .footer {
