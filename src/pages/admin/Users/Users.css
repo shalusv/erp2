@@ -1,0 +1,58 @@
+.users-container {
+  padding: 16px;
+  background-color: #f8f9fa; /* Light grey background */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.users-controls {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+}
+
+.search-input {
+  padding: 8px;
+  /* width: 300px; */
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-right: 16px;
+}
+.table-search {
+  width: 50%;
+}
+.table-export {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.export-button {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.excel-button {
+  background-color: #007bff;
+  margin-right: 16px;
+}
+
+.pdf-button {
+  background-color: #28a745;
+}
+
+.data-grid-container {
+  width: 100%;
+  overflow: auto; /* Adds scrollbars if necessary */
+}
+
+.data-grid {
+  width: 100%; /* Ensures the grid takes up the full width of its container */
+}
