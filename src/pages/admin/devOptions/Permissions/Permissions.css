@@ -1,0 +1,104 @@
+/* Permissions.css */
+.permissions-container {
+  padding: 20px;
+}
+
+.permissions-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.nav-tabs .nav-link {
+  cursor: pointer;
+  color: #025b6c; /* Theme color */
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #d56c50; /* Theme color */
+  color: #fff;
+}
+
+.tab-icon {
+  margin-right: 8px;
+}
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.table .action-menu {
+  display: flex;
+  justify-content: space-around;
+}
+
+.table .action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.table .action-button:hover {
+  transform: scale(1.1);
+}
+
+.table .view-button {
+  color: #28a745; /* Green color for view */
+}
+
+.table .view-button:hover {
+  color: #218838;
+}
+
+.table .edit-button {
+  color: #ffc107; /* Yellow color for edit */
+}
+
+.table .edit-button:hover {
+  color: #e0a800;
+}
+
+.table .delete-button {
+  color: #dc3545; /* Red color for delete */
+}
+
+.table .delete-button:hover {
+  color: #c82333;
+}
+
+.modal-header {
+  background-color: #025b6c; /* Theme color */
+  color: white;
+}
+
+.modal-footer .btn-primary {
+  background-color: #d56c50; /* Theme color */
+  border-color: #d56c50; /* Theme color */
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.tab-icon {
+  margin-right: 5px;
+}
+
+.add-button {
+  margin-bottom: 20px;
+}

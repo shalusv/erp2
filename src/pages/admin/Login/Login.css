@@ -6,6 +6,7 @@
   background-image: url("../../../assets/images/admin/backgrounds/bg-login.jpg");
   background-size: cover;
   background-position: center;
+  padding: 20px;
 }
 
 .login-box {

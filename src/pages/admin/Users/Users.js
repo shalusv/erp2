@@ -1,3 +1,4 @@
+// src/pages/admin/Users/Users.js
 import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,8 +8,9 @@ import "jspdf-autotable";
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
 import dataUsers from "../../../data/data-users"; // Import users data
-import "./Users.css";
+import AddUser from "../../../components/admin/other/Users/AddUser"; // Import the AddUser component
 import PageTitle from "../../../components/admin/common/PageTitle/PageTitle";
+import "./Users.css";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90 },
@@ -20,6 +22,7 @@ const columns = [
 
 const Users = () => {
   const [searchText, setSearchText] = useState("");
+  const [showAddUser, setShowAddUser] = useState(false);
 
   const handleExportToExcel = () => {
     const worksheet = XLSX.utils.json_to_sheet(filteredRows);
@@ -47,6 +50,19 @@ const Users = () => {
     setSearchText(event.target.value);
   };
 
+  const handleAddUserClick = () => {
+    setShowAddUser(true);
+  };
+
+  const handleCloseAddUser = () => {
+    setShowAddUser(false);
+  };
+
+  const handleSaveUser = (newUser) => {
+    // Logic to save new user
+    console.log("New user:", newUser);
+  };
+
   const filteredRows = dataUsers.filter((user) =>
     Object.values(user).some((value) =>
       value.toString().toLowerCase().includes(searchText.toLowerCase())
@@ -55,12 +71,12 @@ const Users = () => {
 
   return (
     <>
-      <PageTitle title="Users" />
+      <PageTitle title="Users" onAddClick={handleAddUserClick} />
       <div className="users-container">
         <div className="users-controls">
           <div className="table-search">
             <input
-              title="Search insde table"
+              title="Search inside table"
               type="text"
               placeholder="Search..."
               value={searchText}
@@ -77,7 +93,7 @@ const Users = () => {
               <FontAwesomeIcon icon={faFileExcel} className="icon-export" />
             </button>
             <button
-              title="Export to Pdf"
+              title="Export to PDF"
               onClick={handleExportToPDF}
               className="export-button pdf-button"
             >
@@ -99,6 +115,11 @@ const Users = () => {
           </div>
         </div>
       </div>
+      <AddUser
+        show={showAddUser}
+        handleClose={handleCloseAddUser}
+        handleSave={handleSaveUser}
+      />
     </>
   );
 };

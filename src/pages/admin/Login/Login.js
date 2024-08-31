@@ -1,36 +1,47 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { dummyUsers } from "../../../data/dummyUsers";
+import axios from "axios";
 import { FaHome, FaEye, FaEyeSlash } from "react-icons/fa";
+import API_URL from "../../../config/config.js"; // Adjust the import path as necessary
 import "./Login.css";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // State for password visibility
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if user is already authenticated
     const isAuthenticated = localStorage.getItem("isAuthenticated");
     if (isAuthenticated) {
-      navigate("/admin"); // Redirect to admin if already logged in
+      navigate("/admin");
     }
   }, [navigate]);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const user = dummyUsers.find(
-      (user) => user.username === username && user.password === password
-    );
+    try {
+      console.log(API_URL);
+      const response = await axios.post(
+        `${API_URL}/login`, // Use the API URL from the configuration file
+        {
+          username: username,
+          password: password,
+        },
+        { withCredentials: true }
+      );
 
-    if (user) {
-      localStorage.setItem("isAuthenticated", "true");
-      navigate("/admin");
-    } else {
+      if (response.data.token) {
+        localStorage.setItem("isAuthenticated", "true");
+        console.log(response.data.role);
+        localStorage.setItem("user-name", username); // Store user role
+        localStorage.setItem("userRole", response.data.role); // Store user role
+        navigate("/admin");
+      }
+    } catch (error) {
       setError("Invalid credentials. Please try again.");
-      setTimeout(() => setError(""), 3000); // Clear error message after 3 seconds
+      setTimeout(() => setError(""), 3000);
     }
   };
 

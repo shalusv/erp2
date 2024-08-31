@@ -1,0 +1,19 @@
+/* src/pages/admin/Securities/Securities.css */
+.securities-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.securities-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #d56c50; /* Use your theme color here */
+  margin-bottom: 20px;
+}
+
+.securities-content {
+  font-size: 16px;
+  color: #333;
+}

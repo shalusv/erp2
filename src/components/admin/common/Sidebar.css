@@ -45,7 +45,7 @@
 .sidebar-item {
   width: 100%;
   list-style: none;
-  overflow: hidden; /* Ensure content does not overflow */
+  overflow: visible; /* Ensure overflow is visible */
   margin-bottom: 10px;
   position: relative; /* Position relative to handle absolute tooltip positioning */
 }
@@ -56,7 +56,6 @@
   height: var(--link-height);
   text-decoration: none;
   font-weight: 500;
-  /* border: thin solid var(--link-border-color); */
   transition: background-color 0.3s ease, color 0.3s ease;
   width: 100%;
   border-radius: 5px;
@@ -121,6 +120,108 @@
   display: block;
   opacity: 1;
   pointer-events: auto;
+}
+
+.submenu-container {
+  position: relative;
+  overflow: visible;
+}
+
+/* Submenu Styles */
+.submenu-container {
+  position: relative;
+}
+
+.submenu {
+  display: none; /* Hide submenu by default */
+  position: absolute;
+  left: 100%; /* Position submenu to the right of the parent link with spacing */
+  top: 0;
+  color: #fff; /* White text color for visibility */
+  width: 200px; /* Adjust width as needed */
+  padding-left: 1px;
+  z-index: 2000; /* Ensure submenu is above other content */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  transform: translateX(10px); /* Slide effect */
+  opacity: 0; /* Hide submenu by default */
+  pointer-events: none; /* Prevent submenu from being clicked when hidden */
+  border-left: 10px solid var(--sidebar-bg-color);
+  list-style: none;
+  transition: border-left 0.5s ease, color 0.3s ease;
+}
+
+.submenu-container:hover .submenu,
+.submenu-container:focus-within .submenu {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto; /* Allow submenu to be interacted with */
+}
+
+.submenu-overlay {
+  background-color: var(--sidebar-bg-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 0 8px 8px 0;
+  padding: 10px;
+}
+
+.submenu-tooltip {
+  display: block;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: right;
+  margin-bottom: 3px;
+}
+
+.submenu-link {
+  display: block;
+  padding: 10px;
+  color: var(--link-color); /* Ensure text color is white for contrast */
+  text-decoration: none;
+  background-color: var(
+    --link-bg-color
+  ); /* Dark background color for each link */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.submenu-link:hover {
+  background-color: var(--primary-color); /* Lighter background on hover */
+  color: #fff; /* Maintain white text color on hover */
+}
+
+/* Sidebar Item with Submenu Indicator */
+.submenu-container > .sidebar-link::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--link-color); /* Triangle color matching the link color */
+  transition: transform 0.3s ease;
+}
+
+/* Change the color and position of the triangle when the link is active or hovered */
+.submenu-container > .sidebar-link:hover::after,
+.submenu-container > .sidebar-link.active::after {
+  border-top-color: var(--link-hover-color);
+  transform: translateY(
+    -2px
+  ); /* Slightly move the triangle up on hover/active */
+}
+
+/* Submenu Button Styles */
+.submenu-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
 }
 
 /* Toggle button styles */

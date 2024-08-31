@@ -1,19 +1,63 @@
-/* src/components/admin/common/PageTitle.css */
+/* src/components/admin/common/PageTitle/PageTitle.css */
 .page-title-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  border: 1px solid;
+  border-left: 6px solid;
+  border-color: var(--primary-color);
+  border-radius: 10px;
 }
 
 .page-title {
   margin: 0;
-  padding: 5px;
-  border: 1px solid;
-  border-left: 6px solid;
-  border-color: var(--secondary-color);
-  border-radius: 10px; /* Rounded left side corners */
-  font-size: 24px; /* Adjust font size as needed */
-  color: var(--primary-color); /* Text color */
-  font-weight: bold; /* Bold text */
-  flex-grow: 1; /* Allow title to take up remaining space */
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #999;
+  font-weight: bold;
+}
+
+.add-user-button {
+  background-color: var(--primary-color);
+  min-width: 50px;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  transition: background-color 0.3s;
+  justify-content: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.add-user-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.add-user-text {
+  /* margin-left: 8px; */
+}
+
+.icon-add {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .add-user-button {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 50px;
+  }
+
+  .add-user-text {
+    display: none;
+  }
+  .icon-add {
+    display: block;
+  }
 }

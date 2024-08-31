@@ -1,22 +1,18 @@
-/* AddUser.css */
-.modal-header {
-  background-color: #007bff;
-  color: #fff;
+/* src/components/admin/other/Users/AddUser.css */
+.add-user-modal .modal-header {
+  background-color: #f8f9fa; /* Light grey header background */
 }
 
-.modal-footer {
-  justify-content: flex-end;
+.add-user-modal .form-control {
+  border: 1px solid #ced4da; /* Custom input border */
 }
 
-.form-label {
-  margin-top: 10px;
+.add-user-modal .btn-primary {
+  background-color: var(--primary-color); /* Primary button color */
+  border-color: var(--primary-color); /* Button border color */
 }
 
-.form-control {
-  margin-bottom: 10px;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+.add-user-modal .btn-primary:hover {
+  background-color: var(--secondary-color); /* Button hover color */
+  border-color: var(--secondary-color); /* Button border hover color */
 }

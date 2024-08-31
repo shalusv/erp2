@@ -54,8 +54,9 @@
 
 .search-icon {
   position: absolute;
-  top: 18px;
-  right: 20px;
+  top: 22px;
+  right: 35px;
+  color: var(--primary-color);
 }
 
 .search-dropdown {
@@ -110,7 +111,7 @@
   cursor: pointer;
 }
 
-.dropdown-menu {
+.user-dropdown-menu {
   position: absolute;
   top: 100%;
   right: 0;
@@ -122,14 +123,14 @@
   min-width: 200px;
 }
 
-.dropdown-header {
+.user-dropdown-header {
   display: flex;
   align-items: center;
   padding: 15px;
   border-bottom: thin solid var(--separator-color);
 }
 
-.dropdown-profile-img {
+.user-dropdown-profile-img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -137,22 +138,23 @@
   margin-right: 10px;
 }
 
-.dropdown-user-details {
+.user-dropdown-user-details {
   display: flex;
   flex-direction: column;
 }
 
-.dropdown-user-name {
-  font-size: 16px;
+.user-dropdown-user-name {
+  font-size: 10px;
   color: var(--text-color);
+  font-weight: bold;
 }
 
-.dropdown-user-role {
+.user-dropdown-user-role {
   font-size: 14px;
   color: var(--text-color);
 }
 
-.dropdown-item {
+.user-dropdown-item {
   display: flex;
   align-items: center;
   padding: 10px 15px;
@@ -161,12 +163,12 @@
   border-top: thin solid var(--separator-color);
 }
 
-.dropdown-item:hover {
+.user-dropdown-item:hover {
   background-color: var(--primary-color);
   color: var(--white);
 }
 
-.dropdown-icon {
+.user-dropdown-icon {
   margin-right: 10px;
 }
 
@@ -188,7 +190,7 @@
 }
 
 /* Ensure dropdown menu is positioned correctly */
-.dropdown-menu,
+.user-dropdown-menu,
 .search-dropdown {
   position: absolute;
   top: 100%; /* Position below the trigger */

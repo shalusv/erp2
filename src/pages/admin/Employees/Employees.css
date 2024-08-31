@@ -12,14 +12,6 @@
   margin-bottom: 15px;
 }
 
-.table-search .search-input {
-  padding: 8px 12px;
-  border: 1px solid #ced4da; /* Grey border */
-  border-radius: 4px;
-  width: 300px;
-  font-size: 16px;
-}
-
 .data-grid-container {
   background-color: #fff;
   border-radius: 8px;

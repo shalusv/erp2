@@ -56,6 +56,9 @@ const Header = ({ isCollapsed }) => {
     }
   };
 
+  // const userName = localStorage.getItem("user-name");
+  // const userRole = localStorage.getItem("userRole");
+
   // Handle logout
   const handleLogout = () => {
     localStorage.removeItem("isAuthenticated");
@@ -121,31 +124,39 @@ const Header = ({ isCollapsed }) => {
                 onClick={() => setDropdownOpen(false)}
               ></div>
               <div
-                className="dropdown-menu"
+                className="user-dropdown-menu"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="dropdown-header">
+                <div className="user-dropdown-header">
                   <img
                     src={profileImage}
                     alt="User Profile"
-                    className="dropdown-profile-img"
+                    className="user-dropdown-profile-img"
                   />
-                  <div className="dropdown-user-details">
-                    <span className="dropdown-user-name">John Doe</span>
-                    <span className="dropdown-user-role">Admin</span>
+                  <div className="user-dropdown-user-details">
+                    <span className="user-dropdown-user-name">
+                      {"Shalu S Vayakakdy"}
+                    </span>
+                    <span className="user-dropdown-user-role">
+                      {"Developer"}
+                    </span>
                   </div>
                 </div>
-                <NavLink to="/profile" className="dropdown-item">
-                  <FaUser className="dropdown-icon" /> Profile
+                <NavLink
+                  to="/admin/profile"
+                  className="user-dropdown-item"
+                  onClick={() => setDropdownOpen(false)}
+                >
+                  <FaUser className="user-dropdown-icon" /> Profile
                 </NavLink>
-                <NavLink to="/settings" className="dropdown-item">
-                  <FaCog className="dropdown-icon" /> Settings
+                <NavLink to="/settings" className="user-dropdown-item">
+                  <FaCog className="user-dropdown-icon" /> Settings
                 </NavLink>
-                <NavLink to="/help" className="dropdown-item">
-                  <FaQuestionCircle className="dropdown-icon" /> Help
+                <NavLink to="/help" className="user-dropdown-item">
+                  <FaQuestionCircle className="user-dropdown-icon" /> Help
                 </NavLink>
-                <span onClick={handleLogout} className="dropdown-item">
-                  <FaSignOutAlt className="dropdown-icon" /> Logout
+                <span onClick={handleLogout} className="user-dropdown-item">
+                  <FaSignOutAlt className="user-dropdown-icon" /> Logout
                 </span>
               </div>
             </>

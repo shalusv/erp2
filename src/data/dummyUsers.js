@@ -1,12 +1,19 @@
-// src/data/dummyUsers.js
-export const dummyUsers = [
+const dummyUsers = [
   {
     username: "admin",
-    password: "password",
+    password: "123",
+    role: "admin",
+  },
+  {
+    username: "developer",
+    password: "123",
+    role: "developer",
   },
   {
     username: "user",
-    password: "user",
+    password: "123",
+    role: "user",
   },
-  // Add more dummy users if needed
 ];
+
+export default dummyUsers;
