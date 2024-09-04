@@ -1,0 +1,32 @@
+/* src/components/admin/other/Dev-Options/TabNavigation/TabNavigation.css */
+
+.tab-navigation {
+  display: flex;
+  /* border-bottom: 2px solid #ddd; */
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background: var(--white);
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+.tab-navigation button {
+  flex: 1;
+  padding: 10px 15px;
+  background: var(--link-bg-color);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+  margin-right: 1px;
+}
+
+.tab-navigation button:hover {
+  background: var(--primary-color);
+}
+
+.tab-navigation button.active {
+  /* background: var(--link-active-bg-color); */
+  color: white;
+  border-bottom: 5px solid var(--primary-color);
+}

@@ -6,7 +6,7 @@ import Login from "./pages/admin/Login/Login";
 import Dashboard from "./pages/admin/Dashboard/Dashboard";
 import Users from "./pages/admin/Users/Users";
 import Employees from "./pages/admin/Employees/Employees";
-import Permissions from "./pages/admin/devOptions/Permissions/Permissions";
+import DevOptions from "./pages/admin/devOptions/DevOptions";
 import Profiles from "./pages/admin/settings/Profiles/Profiles";
 import Securities from "./pages/admin/settings/Securities/Securities";
 import Home from "./pages/client/Home/Home";
@@ -15,78 +15,81 @@ import ContactPage from "./pages/client/Contact/Contact";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
 import "./assets/styles/global.css";
 import Profile from "./pages/admin/Profile/Profile";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        {/* Client Routes */}
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+    <>
+      <Router>
+        <Routes>
+          {/* Client Routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
 
-        {/* Admin Routes */}
-        <Route path="/admin/login" element={<Login />} />
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route
-            index
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="users"
-            element={
-              <ProtectedRoute>
-                <Users />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="employees"
-            element={
-              <ProtectedRoute>
-                <Employees />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="dev-options/permissions"
-            element={
-              <ProtectedRoute>
-                <Permissions />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="settings/profiles"
-            element={
-              <ProtectedRoute>
-                <Profiles />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="settings/securities"
-            element={
-              <ProtectedRoute>
-                <Securities />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="profile"
-            element={
-              <ProtectedRoute>
-                <Profile />
-              </ProtectedRoute>
-            }
-          />
-        </Route>
-      </Routes>
-    </Router>
+          {/* Admin Routes */}
+          <Route path="/admin/login" element={<Login />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route
+              index
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="users"
+              element={
+                <ProtectedRoute>
+                  <Users />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="employees"
+              element={
+                <ProtectedRoute>
+                  <Employees />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="dev-options"
+              element={
+                <ProtectedRoute>
+                  <DevOptions />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="settings/profiles"
+              element={
+                <ProtectedRoute>
+                  <Profiles />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="settings/securities"
+              element={
+                <ProtectedRoute>
+                  <Securities />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+          </Route>
+        </Routes>
+      </Router>
+    </>
   );
 };
 

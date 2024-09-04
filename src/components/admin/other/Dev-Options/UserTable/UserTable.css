@@ -1,0 +1,46 @@
+/* src/components/admin/other/Dev-Options/UserTable/UserTable.css */
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th,
+.user-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.user-table th {
+  background-color: #f2f2f2;
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.user-table button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  color: white;
+}
+
+.user-table button:hover {
+  opacity: 0.8;
+}
+
+.user-table button:first-of-type {
+  background-color: #17a2b8; /* View - Info */
+}
+
+.user-table button:nth-of-type(2) {
+  background-color: #ffc107; /* Edit - Warning */
+}
+
+.user-table button:last-of-type {
+  background-color: #dc3545; /* Delete - Danger */
+}

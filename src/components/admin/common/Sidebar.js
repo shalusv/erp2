@@ -110,36 +110,17 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
             </div>
           </ul>
         </li>
-
-        {/* Dev Options */}
-        <li
-          className={`sidebar-item submenu-container ${
-            openSubMenu === "dev-options" ? "active" : ""
-          }`}
-          onClick={() => handleSubMenuToggle("dev-options")}
-        >
-          <div className="sidebar-link">
-            <FaLaptopCode className="icon" />
-            <span className="text">Dev Options</span>
-          </div>
-          <ul
-            className={`submenu ${openSubMenu === "dev-options" ? "open" : ""}`}
+        <li className="sidebar-item">
+          <NavLink
+            to="/admin/dev-options"
+            className={({ isActive }) =>
+              isActive ? "sidebar-link active" : "sidebar-link"
+            }
           >
-            <div className="submenu-overlay">
-              {isCollapsed && (
-                <span className="submenu-tooltip">Dev Options</span>
-              )}
-              <li>
-                <NavLink
-                  to="/admin/dev-options/permissions"
-                  className="submenu-link"
-                  onClick={handleSubMenuLinkClick} // Close submenu on click
-                >
-                  Permissions
-                </NavLink>
-              </li>
-            </div>
-          </ul>
+            <FaUserTie className="icon" />
+            <span className="text">Dev-Options</span>
+          </NavLink>
+          {isCollapsed && <span className="tooltip">Dev-Options</span>}
         </li>
       </ul>
       <button className="toggle-btn" onClick={onToggle}>
