@@ -6,7 +6,7 @@ import Login from "./pages/admin/Login/Login";
 import Dashboard from "./pages/admin/Dashboard/Dashboard";
 import Users from "./pages/admin/Users/Users";
 import Employees from "./pages/admin/Employees/Employees";
-import DevOptions from "./pages/admin/devOptions/DevOptions";
+import DevOptions from "./pages/admin/devOptions/Permissions/Permissions";
 import Profiles from "./pages/admin/settings/Profiles/Profiles";
 import Securities from "./pages/admin/settings/Securities/Securities";
 import Home from "./pages/client/Home/Home";
@@ -55,7 +55,7 @@ const App = () => {
               }
             />
             <Route
-              path="dev-options"
+              path="dev-options/permissions"
               element={
                 <ProtectedRoute>
                   <DevOptions />

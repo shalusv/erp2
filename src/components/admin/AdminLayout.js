@@ -33,9 +33,9 @@ const AdminLayout = () => {
 
   return (
     <div className="admin-layout">
-      <Sidebar isCollapsed={isCollapsed} onToggle={handleToggleSidebar} />
+      <Sidebar isCollapsed={isCollapsed} />
       <div className={`main-content ${isCollapsed ? "collapsed" : ""}`}>
-        <Header isCollapsed={isCollapsed} />
+        <Header isCollapsed={isCollapsed} onToggle={handleToggleSidebar} />
         <div className="content-wrapper">
           <div className="content">
             <Outlet /> {/* This is where nested routes will render */}

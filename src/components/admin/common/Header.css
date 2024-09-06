@@ -22,8 +22,10 @@
 }
 
 .link-section {
+  display: flex;
   flex: 0 0 auto;
   padding: 10px;
+  gap: 5px;
 }
 
 .search-container {

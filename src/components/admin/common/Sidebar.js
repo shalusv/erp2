@@ -1,28 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import {
   FaTachometerAlt,
   FaUsers,
   FaUserTie,
   FaCog,
-  FaAngleLeft,
-  FaAngleRight,
   FaLaptopCode,
 } from "react-icons/fa";
 import "./Sidebar.css";
 
 const Sidebar = ({ isCollapsed, onToggle }) => {
-  const location = useLocation();
-  const [openSubMenu, setOpenSubMenu] = useState(null);
-
-  const handleSubMenuToggle = (menu) => {
-    setOpenSubMenu((prev) => (prev === menu ? null : menu));
-  };
-
-  const handleSubMenuLinkClick = () => {
-    setOpenSubMenu(null); // Close the submenu when any submenu link is clicked
-    console.log(openSubMenu);
-  };
+  const location = useLocation(); // Get current location
 
   return (
     <aside className={`sidebar-wrapper ${isCollapsed ? "collapsed" : ""}`}>
@@ -76,24 +64,24 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
         </li>
 
         {/* Settings with Submenu */}
-        <li
-          className={`sidebar-item submenu-container ${
-            openSubMenu === "settings" ? "active" : ""
-          }`}
-          onClick={() => handleSubMenuToggle("settings")}
-        >
-          <div className="sidebar-link">
+        <li className="sidebar-item submenu-container">
+          <div
+            className={`sidebar-link ${
+              location.pathname.startsWith("/admin/settings") ? "active" : ""
+            }`}
+          >
             <FaCog className="icon" />
             <span className="text">Settings</span>
           </div>
-          <ul className={`submenu ${openSubMenu === "settings" ? "open" : ""}`}>
+          <ul className="submenu">
             <div className="submenu-overlay">
               {isCollapsed && <span className="submenu-tooltip">Settings</span>}
               <li>
                 <NavLink
                   to="/admin/settings/profiles"
-                  className="submenu-link"
-                  onClick={handleSubMenuLinkClick} // Close submenu on click
+                  className={({ isActive }) =>
+                    isActive ? "submenu-link active" : "submenu-link"
+                  }
                 >
                   Profile
                 </NavLink>
@@ -101,8 +89,9 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
               <li>
                 <NavLink
                   to="/admin/settings/securities"
-                  className="submenu-link"
-                  onClick={handleSubMenuLinkClick} // Close submenu on click
+                  className={({ isActive }) =>
+                    isActive ? "submenu-link active" : "submenu-link"
+                  }
                 >
                   Security
                 </NavLink>
@@ -110,22 +99,36 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
             </div>
           </ul>
         </li>
-        <li className="sidebar-item">
-          <NavLink
-            to="/admin/dev-options"
-            className={({ isActive }) =>
-              isActive ? "sidebar-link active" : "sidebar-link"
-            }
+
+        {/* Dev-Options with Submenu */}
+        <li className="sidebar-item submenu-container">
+          <div
+            className={`sidebar-link ${
+              location.pathname.startsWith("/admin/dev-options") ? "active" : ""
+            }`}
           >
-            <FaUserTie className="icon" />
+            <FaLaptopCode className="icon" />
             <span className="text">Dev-Options</span>
-          </NavLink>
-          {isCollapsed && <span className="tooltip">Dev-Options</span>}
+          </div>
+          <ul className="submenu">
+            <div className="submenu-overlay">
+              {isCollapsed && (
+                <span className="submenu-tooltip">Dev-Options</span>
+              )}
+              <li>
+                <NavLink
+                  to="/admin/dev-options/permissions"
+                  className={({ isActive }) =>
+                    isActive ? "submenu-link active" : "submenu-link"
+                  }
+                >
+                  Permissions
+                </NavLink>
+              </li>
+            </div>
+          </ul>
         </li>
       </ul>
-      <button className="toggle-btn" onClick={onToggle}>
-        {isCollapsed ? <FaAngleRight /> : <FaAngleLeft />}
-      </button>
     </aside>
   );
 };

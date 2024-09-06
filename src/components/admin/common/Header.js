@@ -8,12 +8,14 @@ import {
   FaCog,
   FaQuestionCircle,
   FaSignOutAlt,
+  FaAngleRight,
+  FaAngleLeft,
 } from "react-icons/fa";
 import profileImage from "../../../assets/images/admin/uploads/profile-images/profile-deafult-female.jpg";
 import useClickOutside from "../../../hooks/useClickOutside";
 import "./Header.css";
 
-const Header = ({ isCollapsed }) => {
+const Header = ({ isCollapsed, onToggle }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
@@ -33,7 +35,6 @@ const Header = ({ isCollapsed }) => {
     "Product Listings",
   ];
 
-  // Handle search input change
   const handleSearchChange = (event) => {
     const value = event.target.value;
     setSearchTerm(value);
@@ -45,7 +46,6 @@ const Header = ({ isCollapsed }) => {
     setSearchDropdownOpen(value.length > 0);
   };
 
-  // Handle focus on search input
   const handleFocus = () => {
     if (searchTerm) {
       const filtered = suggestions.filter((suggestion) =>
@@ -56,21 +56,15 @@ const Header = ({ isCollapsed }) => {
     }
   };
 
-  // const userName = localStorage.getItem("user-name");
-  // const userRole = localStorage.getItem("userRole");
-
-  // Handle logout
   const handleLogout = () => {
     localStorage.removeItem("isAuthenticated");
     navigate("/admin/login");
   };
 
-  // Toggle dropdown visibility
   const toggleDropdown = () => {
     setDropdownOpen((prev) => !prev);
   };
 
-  // Close dropdown when clicking outside
   useClickOutside(userSectionRef, () => setDropdownOpen(false));
   useClickOutside(searchContainerRef, () => setSearchDropdownOpen(false));
 
@@ -78,6 +72,9 @@ const Header = ({ isCollapsed }) => {
     <header className={`header ${isCollapsed ? "collapsed" : ""}`}>
       <div className="header-right">
         <div className="link-section">
+          <button className="menu-toggle-btn" onClick={onToggle}>
+            {isCollapsed ? <FaAngleRight /> : <FaAngleLeft />}
+          </button>
           <NavLink to="/" className="round-nav">
             <FaHome className="icon" />
           </NavLink>

@@ -6,8 +6,7 @@
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   background: var(--white);
-  margin-bottom: 5px;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
 }
 
 .tab-navigation button {
@@ -21,6 +20,12 @@
   margin-right: 1px;
 }
 
+.tab-navigation button:first-child {
+  border-radius: 8px 0 0 0;
+}
+.tab-navigation button:last-child {
+  border-radius: 0 8px 0 0;
+}
 .tab-navigation button:hover {
   background: var(--primary-color);
 }

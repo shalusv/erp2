@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./AddPermissionModal.css";
-import API_URL from "../../../../../config/config";
+import API_URL from "../../../../../../config/config";
 import { toast } from "react-toastify";
 
 const AddPermissionModal = ({ isOpen, onClose, onSave, showToast }) => {
@@ -8,6 +8,7 @@ const AddPermissionModal = ({ isOpen, onClose, onSave, showToast }) => {
   const [description, setDescription] = useState("");
   const [isSaving, setIsSaving] = useState(false);
   const modalRef = useRef(null);
+  const nameInputRef = useRef(null); // Create a ref for the name input field
 
   const handleSave = async () => {
     if (!name) {
@@ -30,11 +31,8 @@ const AddPermissionModal = ({ isOpen, onClose, onSave, showToast }) => {
       const result = await response.json();
 
       if (!response.ok) {
-        if (
-          response.status === 422 &&
-          result.error === "The permission name already exists."
-        ) {
-          showToast(result.error, "error"); // Display "The permission name already exists" message
+        if (response.status === 422 && result.errors && result.errors.name) {
+          showToast(result.errors.name.join(", "), "error");
         } else {
           showToast(result.error || "Failed to save permission.", "error");
         }
@@ -47,7 +45,6 @@ const AddPermissionModal = ({ isOpen, onClose, onSave, showToast }) => {
       onClose(); // Close modal only on success
     } catch (error) {
       showToast("Failed to save permission: " + error.message, "error");
-      // Do not close the modal on error
     } finally {
       setIsSaving(false);
     }
@@ -68,6 +65,10 @@ const AddPermissionModal = ({ isOpen, onClose, onSave, showToast }) => {
   useEffect(() => {
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
+      // Focus on the name input field when the modal opens
+      if (nameInputRef.current) {
+        nameInputRef.current.focus();
+      }
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
     }
@@ -103,6 +104,7 @@ const AddPermissionModal = ({ isOpen, onClose, onSave, showToast }) => {
             onChange={(e) => setName(e.target.value)}
             placeholder="Enter Permission name"
             required
+            ref={nameInputRef} // Attach the ref to the input field
           />
         </div>
         <div className="custom-form-group">
