@@ -16,7 +16,7 @@ const Employees = () => {
   const [showAddEmployee, setShowAddEmployee] = useState(false);
   const [showDeleteEmployee, setShowDeleteEmployee] = useState(false);
   const [showEditEmployee, setShowEditEmployee] = useState(false);
-  const [showViewEmployee, setShowViewEmployee] = useState(false);
+  const [showViewEmployee, setShowViewEmployee] = useState(true);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [employees, setEmployees] = useState([]);
   const [filteredEmployees, setFilteredEmployees] = useState([]);

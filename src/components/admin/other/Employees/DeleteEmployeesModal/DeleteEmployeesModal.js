@@ -1,11 +1,11 @@
 import React, { useRef, useEffect } from "react";
 import "./DeleteEmployeesModal.css";
 
-const DeleteEmployeesModal = ({ isOpen, onClose, onDelete, permission }) => {
+const DeleteEmployeeModal = ({ isOpen, onClose, onDelete, employee }) => {
   const modalRef = useRef(null);
 
   const handleDelete = () => {
-    onDelete(permission.id);
+    onDelete(employee.id);
     onClose();
   };
 
@@ -27,13 +27,13 @@ const DeleteEmployeesModal = ({ isOpen, onClose, onDelete, permission }) => {
     };
   }, [isOpen]);
 
-  if (!isOpen || !permission) return null;
+  if (!isOpen || !employee) return null;
 
   return (
     <div className="custom-modal-overlay">
       <div className="custom-modal-content" ref={modalRef}>
         <div className="custom-modal-header">
-          <h2>Delete Permission</h2>
+          <h2>Delete Employee</h2>
           <button
             className="custom-close-button"
             onClick={onClose}
@@ -44,8 +44,8 @@ const DeleteEmployeesModal = ({ isOpen, onClose, onDelete, permission }) => {
         </div>
         <div className="custom-modal-body">
           <p>
-            Are you sure you want to delete the permission "
-            <strong>{permission.name}</strong>"?
+            Are you sure you want to delete the employee "
+            <strong>{employee.name}</strong>"?
           </p>
         </div>
         <div className="custom-modal-actions">
@@ -61,4 +61,4 @@ const DeleteEmployeesModal = ({ isOpen, onClose, onDelete, permission }) => {
   );
 };
 
-export default DeleteEmployeesModal;
+export default DeleteEmployeeModal;
