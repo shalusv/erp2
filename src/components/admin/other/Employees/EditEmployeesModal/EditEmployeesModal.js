@@ -3,70 +3,67 @@ import "./EditEmployeesModal.css";
 import API_URL from "../../../../../config/config";
 import { toast } from "react-toastify";
 
-const EditEmployeesModal = ({
-  isOpen,
-  onClose,
-  onSave,
-  showToast,
-  permission,
-}) => {
+const EditEmployeeModal = ({ isOpen, onClose, onSave, showToast, employee }) => {
   const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [originalName, setOriginalName] = useState(""); // Store the original name
-  const [originalDescription, setOriginalDescription] = useState(""); // Store the original description
+  const [email, setEmail] = useState("");
+  const [position, setPosition] = useState("");
+  const [originalName, setOriginalName] = useState("");
+  const [originalEmail, setOriginalEmail] = useState("");
+  const [originalPosition, setOriginalPosition] = useState("");
   const [isSaving, setIsSaving] = useState(false);
   const modalRef = useRef(null);
   const nameInputRef = useRef(null);
 
   useEffect(() => {
-    if (isOpen && permission) {
-      // Pre-fill the form fields with existing permission data
-      setName(permission.name);
-      setDescription(permission.description || "");
-      setOriginalName(permission.name); // Save the original name
-      setOriginalDescription(permission.description || ""); // Save the original description
+    if (isOpen && employee) {
+      setName(employee.name);
+      setEmail(employee.email || "");
+      setPosition(employee.position || "");
+      setOriginalName(employee.name);
+      setOriginalEmail(employee.email || "");
+      setOriginalPosition(employee.position || "");
     } else {
-      resetForm(); // Reset form when modal is closed or permission is not provided
+      resetForm();
     }
-  }, [isOpen, permission]);
+  }, [isOpen, employee]);
 
   const handleUpdate = async () => {
-    if (!name) {
-      showToast("Please enter a permission name.", "error");
+    if (!name || !email || !position) {
+      showToast("Please fill out all fields.", "error");
       return;
     }
 
     setIsSaving(true);
 
     try {
-      const response = await fetch(`${API_URL}/permissions/${permission.id}`, {
+      const response = await fetch(`${API_URL}/employees/${employee.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        body: JSON.stringify({ name, description }),
+        body: JSON.stringify({ name, email, position }),
       });
 
       const result = await response.json();
 
       if (!response.ok) {
-        if (response.status === 422 && result.errors && result.errors.name) {
-          showToast(result.errors.name.join(", "), "error");
-          // Reset form fields to original values if there's a validation error
+        if (response.status === 422 && result.errors) {
+          showToast(result.errors.join(", "), "error");
           setName(originalName);
-          setDescription(originalDescription);
+          setEmail(originalEmail);
+          setPosition(originalPosition);
         } else {
-          showToast(result.error || "Failed to update permission.", "error");
+          showToast(result.error || "Failed to update employee.", "error");
         }
         return;
       }
 
-      onSave(result.permission);
+      onSave(result.employee);
       resetForm();
-      onClose(); // Close modal only on success
+      onClose();
     } catch (error) {
-      showToast("Failed to update permission: " + error.message, "error");
+      showToast("Failed to update employee: " + error.message, "error");
     } finally {
       setIsSaving(false);
     }
@@ -74,7 +71,8 @@ const EditEmployeesModal = ({
 
   const resetForm = () => {
     setName("");
-    setDescription("");
+    setEmail("");
+    setPosition("");
   };
 
   const handleClickOutside = (event) => {
@@ -105,7 +103,7 @@ const EditEmployeesModal = ({
     <div className="custom-modal-overlay">
       <div className="custom-modal-content" ref={modalRef}>
         <div className="custom-modal-header">
-          <h2>Edit Permission</h2>
+          <h2>Edit Employee</h2>
           <button
             className="custom-close-button"
             onClick={() => {
@@ -118,22 +116,34 @@ const EditEmployeesModal = ({
           </button>
         </div>
         <div className="custom-form-group">
-          <label>Permission Name</label>
+          <label>Employee Name</label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Enter Permission name"
+            placeholder="Enter employee name"
             required
             ref={nameInputRef}
           />
         </div>
         <div className="custom-form-group">
-          <label>Description</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder="Enter description (optional)"
+          <label>Email</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter email address"
+            required
+          />
+        </div>
+        <div className="custom-form-group">
+          <label>Position</label>
+          <input
+            type="text"
+            value={position}
+            onChange={(e) => setPosition(e.target.value)}
+            placeholder="Enter position"
+            required
           />
         </div>
         <div className="custom-modal-actions">
@@ -159,4 +169,4 @@ const EditEmployeesModal = ({
   );
 };
 
-export default EditEmployeesModal;
+export default EditEmployeeModal;

@@ -1,7 +1,4 @@
-/* src/components/admin/other/Dev-Options/EditPermissionModal/EditPermissionModal.css */
-
-/* Reuse the same styles as AddPermissionModal.css */
-.modal-overlay {
+.custom-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -14,7 +11,7 @@
   z-index: 1000;
 }
 
-.modal-content {
+.custom-modal-content {
   background-color: white;
   padding: 25px;
   border-radius: 8px;
@@ -22,35 +19,48 @@
   max-width: 90%;
 }
 
-.modal-content h2 {
+.custom-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-.form-group {
+.custom-modal-header h2 {
+  margin: 0;
+}
+
+.custom-close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.custom-form-group {
   margin-bottom: 15px;
 }
 
-.form-group label {
+.custom-form-group label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-.form-group input,
-.form-group textarea {
+.custom-form-group input {
   width: 100%;
   padding: 8px 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.modal-actions {
+.custom-modal-actions {
   display: flex;
   justify-content: flex-end;
   margin-top: 20px;
 }
 
-.modal-actions .save-button {
+.custom-save-button {
   background-color: #28a745;
   color: white;
   border: none;
@@ -60,11 +70,11 @@
   border-radius: 4px;
 }
 
-.modal-actions .save-button:hover {
+.custom-save-button:hover {
   background-color: #218838;
 }
 
-.modal-actions .cancel-button {
+.custom-cancel-button {
   background-color: #6c757d;
   color: white;
   border: none;
@@ -73,6 +83,6 @@
   border-radius: 4px;
 }
 
-.modal-actions .cancel-button:hover {
+.custom-cancel-button:hover {
   background-color: #5a6268;
 }
