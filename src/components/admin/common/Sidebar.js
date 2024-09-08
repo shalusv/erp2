@@ -12,6 +12,12 @@ import "./Sidebar.css";
 const Sidebar = ({ isCollapsed, onToggle }) => {
   const location = useLocation(); // Get current location
 
+  const handleToggle = () => {
+    if (onToggle) {
+      onToggle(); // Only call onToggle if it is provided
+    }
+  };
+
   return (
     <aside className={`sidebar-wrapper ${isCollapsed ? "collapsed" : ""}`}>
       <div className="sidebar-header">
@@ -69,6 +75,7 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
             className={`sidebar-link ${
               location.pathname.startsWith("/admin/settings") ? "active" : ""
             }`}
+            onClick={handleToggle} // Add this if you need to handle clicks
           >
             <FaCog className="icon" />
             <span className="text">Settings</span>
@@ -106,6 +113,7 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
             className={`sidebar-link ${
               location.pathname.startsWith("/admin/dev-options") ? "active" : ""
             }`}
+            onClick={handleToggle} // Add this if you need to handle clicks
           >
             <FaLaptopCode className="icon" />
             <span className="text">Dev-Options</span>

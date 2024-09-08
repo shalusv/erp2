@@ -62,4 +62,7 @@
   --sidebar-width-collapsed: 60px;
   --margin-main-content: 200px;
   --margin-main-content-collapsed: 80px;
+
+  --indicator-color: green;
+  --indicator-color-hover: red;
 }

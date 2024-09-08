@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: column;
   transition: margin-left 0.3s ease;
-  transition: position 0.3s ease;
+  transition: width 5s ease;
   margin-left: var(--sidebar-width);
   width: calc(100% - var(--sidebar-width));
 }
@@ -29,6 +29,7 @@
   margin-left: var(
     --sidebar-width-collapsed
   ); /* Margin when sidebar is collapsed */
+  transition: margin-left 0.3s ease;
 }
 
 .header {
@@ -51,7 +52,7 @@
   width: calc(
     100% - var(--sidebar-width-collapsed)
   ); /* Adjust based on collapsed sidebar */
-  transition: width 0s ease;
+  transition: width 1s ease;
 }
 
 .content-wrapper {

@@ -8,7 +8,7 @@
   top: 0;
   left: 0;
   overflow: visible; /* Ensure overflow is visible */
-  transition: width 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for width and shadow */
+  transition: width 0.5s ease, box-shadow 0.3s ease; /* Smooth transition for width and shadow */
   padding: 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add box-shadow */
   z-index: 1000; /* Ensure sidebar is on top of other content */
@@ -16,6 +16,7 @@
 
 .sidebar-wrapper.collapsed {
   width: var(--sidebar-width-collapsed);
+  transition: width 0.5s ease;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Reduced shadow for collapsed state */
 }
 
@@ -200,17 +201,32 @@
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid var(--link-color); /* Triangle color matching the link color */
-  transition: transform 0.3s ease;
+  border-top: 5px solid var(--indicator-color); /* Triangle color matching the link color */
+  transition: transform 0.4s ease;
+}
+
+.sidebar-wrapper.collapsed .submenu-container > .sidebar-link::after {
+  left: 15px;
+  bottom: 3px;
+  border-top: 5px solid var(--indicator-color);
 }
 
 /* Change the color and position of the triangle when the link is active or hovered */
 .submenu-container > .sidebar-link:hover::after,
-.submenu-container > .sidebar-link.active::after {
-  border-top-color: var(--link-hover-color);
-  transform: translateY(
-    -2px
-  ); /* Slightly move the triangle up on hover/active */
+.sidebar-wrapper.collapsed .submenu-container > .sidebar-link:hover::after {
+  border-top-color: var(--indicator-color-hover);
+  transform: rotate(-0.25turn);
+}
+
+.sidebar-wrapper.collapsed .submenu-container > .sidebar-link:hover::after {
+  border-top-color: var(--indicator-color-hover);
+  transform: rotate(-0.25turn);
+  left: 30px;
+  transition: left 0.5s ease;
+}
+.submenu-link.active {
+  background-color: var(--link-active-bg-color); /* Adjust as needed */
+  color: var(--link-active-color); /* Adjust as needed */
 }
 
 /* Submenu Button Styles */

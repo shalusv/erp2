@@ -1,0 +1,20 @@
+.modal-heading {
+  font-size: 1.5rem; /* Smaller than default */
+  color: #333;
+}
+
+.icon-edit {
+  color: #025b6c;
+}
+
+.icon-edit:hover {
+  color: #014c5b;
+}
+
+.icon-delete {
+  color: red;
+}
+
+.icon-delete:hover {
+  color: darkred;
+}

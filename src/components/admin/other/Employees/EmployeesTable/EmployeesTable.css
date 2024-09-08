@@ -1,0 +1,121 @@
+.employees-table-container {
+  position: relative;
+  width: 100%;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 15px 15px 10px 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-top: solid 2px var(--primary-color);
+}
+
+.employees-table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.add-new-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.add-new-button .icon-add {
+  margin-right: 5px;
+}
+
+.table-search {
+  flex-grow: 1;
+}
+
+.table-search-input {
+  width: 80%;
+  max-width: 300px;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.table-buttons {
+  padding: 10px 10px;
+  display: flex;
+}
+
+.export-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.export-button.excel-button {
+  background-color: #28a745;
+}
+
+.export-button.pdf-button {
+  background-color: #dc3545;
+}
+
+.icon-export {
+  margin-right: 5px;
+}
+
+.data-grid {
+  width: 100%;
+  height: 500px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.MuiDataGrid-root {
+  border: 1px solid #ced4da;
+}
+
+.MuiDataGrid-cell {
+  border-right: 1px solid #ced4da;
+}
+
+.MuiDataGrid-columnHeader {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ced4da;
+  color: #495057;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.spinner-border {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #007bff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
