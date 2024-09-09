@@ -1,15 +1,23 @@
 import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFileExcel, faFilePdf, faEdit, faTrashAlt, faEye, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faFileExcel, faFilePdf, faEdit, faTrashAlt, faEye } from "@fortawesome/free-solid-svg-icons";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
 import "./EmployeesTable.css";
 
-const EmployeesTable = ({ employees, onView, onEdit, onDelete, onAdd }) => {
+const EmployeesTable = ({ employees, onView, onEdit, onDelete }) => {
   const [searchText, setSearchText] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  // Simulate loading by using useEffect (if you're fetching data, use real async calls)
+  React.useEffect(() => {
+    setTimeout(() => {
+      setLoading(false); // Set loading to false after 2 seconds (mock loading)
+    }, 2000);
+  }, []);
 
   const columns = [
     {
@@ -18,25 +26,13 @@ const EmployeesTable = ({ employees, onView, onEdit, onDelete, onAdd }) => {
       width: 150,
       renderCell: (params) => (
         <div className="action-buttons">
-          <button
-            className="action-button view-button"
-            onClick={() => onView(params.row)}
-            title="View"
-          >
+          <button className="action-button view-button" onClick={() => onView(params.row)} title="View">
             <FontAwesomeIcon icon={faEye} />
           </button>
-          <button
-            className="action-button edit-button"
-            onClick={() => onEdit(params.row)}
-            title="Edit"
-          >
+          <button className="action-button edit-button" onClick={() => onEdit(params.row)} title="Edit">
             <FontAwesomeIcon icon={faEdit} />
           </button>
-          <button
-            className="action-button delete-button"
-            onClick={() => onDelete(params.row)}
-            title="Delete"
-          >
+          <button className="action-button delete-button" onClick={() => onDelete(params.row)} title="Delete">
             <FontAwesomeIcon icon={faTrashAlt} />
           </button>
         </div>
@@ -82,15 +78,9 @@ const EmployeesTable = ({ employees, onView, onEdit, onDelete, onAdd }) => {
   };
 
   const filteredRows = employees.filter((employee) => {
-    const searchableFields = [
-      'first_name',
-      'last_name',
-      'email',
-      'salary',
-      'position.position', // Adjusted for nested position
-    ];
+    const searchableFields = ['first_name', 'last_name', 'email', 'salary', 'position.position'];
 
-    return searchableFields.some(field => {
+    return searchableFields.some((field) => {
       const value = field.split('.').reduce((obj, key) => (obj && obj[key] ? obj[key] : ''), employee) || '';
       return value.toString().toLowerCase().includes(searchText.toLowerCase());
     });
@@ -99,15 +89,6 @@ const EmployeesTable = ({ employees, onView, onEdit, onDelete, onAdd }) => {
   return (
     <div className="employees-table-container">
       <div className="employees-table-controls">
-        <button
-          title="Add Employee"
-          onClick={onAdd}
-          className="add-new-button"
-        >
-          <FontAwesomeIcon icon={faPlus} className="icon-add" />
-          <span className="add-user-text">Add Employee</span>
-        </button>
-
         <div className="table-search">
           <input
             title="Search inside table"
@@ -119,44 +100,43 @@ const EmployeesTable = ({ employees, onView, onEdit, onDelete, onAdd }) => {
           />
         </div>
         <div className="table-buttons">
-          <button
-            title="Export to Excel"
-            onClick={handleExportToExcel}
-            className="export-button excel-button"
-          >
+          <button title="Export to Excel" onClick={handleExportToExcel} className="export-button excel-button">
             <FontAwesomeIcon icon={faFileExcel} className="icon-export" />
           </button>
-          <button
-            title="Export to PDF"
-            onClick={handleExportToPDF}
-            className="export-button pdf-button"
-          >
+          <button title="Export to PDF" onClick={handleExportToPDF} className="export-button pdf-button">
             <FontAwesomeIcon icon={faFilePdf} className="icon-export" />
           </button>
         </div>
       </div>
-      <div className="data-grid-container">
-        <div className="data-grid" style={{ height: 600, width: "100%" }}>
-          <DataGrid
-            rows={filteredRows.map((employee, index) => ({
-              id: employee.id,
-              first_name: employee.first_name,
-              last_name: employee.last_name,
-              email: employee.email,
-              salary: employee.salary,
-              position: employee.position.position, // Extract position from nested object
-              last_updated: new Date(employee.last_updated).toLocaleDateString(),
-            }))}
-            columns={columns}
-            pageSize={10}
-            rowsPerPageOptions={[10]}
-            checkboxSelection
-            disableSelectionOnClick
-            className="data-grid"
-            style={{ width: "100%" }}
-          />
+
+      {loading ? (
+        <div className="spinner-container">
+          <div className="spinner-border"></div>
         </div>
-      </div>
+      ) : (
+        <div className="data-grid-container">
+          <div className="data-grid" style={{ height: 600, width: "100%" }}>
+            <DataGrid
+              rows={filteredRows.map((employee, index) => ({
+                id: employee.id,
+                first_name: employee.first_name,
+                last_name: employee.last_name,
+                email: employee.email,
+                salary: employee.salary,
+                position: employee.position.position, // Extract position from nested object
+                last_updated: new Date(employee.last_updated).toLocaleDateString(),
+              }))}
+              columns={columns}
+              pageSize={10}
+              rowsPerPageOptions={[10]}
+              checkboxSelection
+              disableSelectionOnClick
+              className="data-grid"
+              style={{ width: "100%" }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

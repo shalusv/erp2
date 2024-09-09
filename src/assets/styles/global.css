@@ -238,3 +238,12 @@
     display: none;
   }
 }
+
+
+.custom-page-title{
+  color: var(--link-active-bg-color);
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 15px;
+  font-weight: bold;
+}

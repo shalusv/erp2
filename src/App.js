@@ -5,7 +5,7 @@ import AdminLayout from "./components/admin/AdminLayout";
 import Login from "./pages/admin/Login/Login";
 import Dashboard from "./pages/admin/Dashboard/Dashboard";
 import Users from "./pages/admin/Users/Users";
-import Employees from "./pages/admin/Employees/Employees";
+import Employees from "./pages/admin/Employees/Employees/Employees";
 import DevOptions from "./pages/admin/devOptions/Permissions/Permissions";
 import Profiles from "./pages/admin/settings/Profiles/Profiles";
 import Securities from "./pages/admin/settings/Securities/Securities";
@@ -16,6 +16,7 @@ import ProtectedRoute from "./components/admin/ProtectedRoute";
 import "./assets/styles/global.css";
 import Profile from "./pages/admin/Profile/Profile";
 import "react-toastify/dist/ReactToastify.css";
+import AddNewEmployee from "./pages/admin/Employees/AddNewEmployee/AddNewEmployee";
 
 const App = () => {
   return (
@@ -46,11 +47,20 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+            
             <Route
               path="employees"
               element={
                 <ProtectedRoute>
                   <Employees />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="add-employee"
+              element={
+                <ProtectedRoute>
+                  <AddNewEmployee />
                 </ProtectedRoute>
               }
             />

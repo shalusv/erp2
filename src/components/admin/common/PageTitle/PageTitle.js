@@ -2,41 +2,57 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router-dom"; // Import NavLink
 import "./PageTitle.css";
 
-const PageTitle = ({ title, onAddClick }) => {
-  let buttonText = "Add New";
-
-  switch (title) {
-    case "Users":
-      buttonText = "Add New User";
-      break;
-    case "Products":
-      buttonText = "Add New Product";
-      break;
-    case "Employees":
-      buttonText = "Add New Employee";
-      break;
-    case "Purchases":
-      buttonText = "Add New Purchase";
-      break;
-    default:
-      buttonText = "";
-      break;
+const PageTitle = ({ title,page }) => {
+  // Define the route based on the title
+  let addLink = "",buttonText='';
+  if(page === "list"){
+    switch (title) {
+      case "Users":
+          addLink = "/admin/add-user";
+          buttonText = "Add New User";
+        break;
+      case "Employees":
+        addLink = "/admin/add-employee";
+        buttonText = "Add New Employees";
+        break;
+      default:
+        addLink = "#";
+        break;
+    }
   }
+  else{
+    switch (title) {
+      case "Users":
+        addLink = "/admin/users";
+        buttonText = "Users";
+        break;
+      case "Employees":
+        addLink = "/admin/employees";
+        buttonText = "Employees";
+        break;
+      default:
+        addLink = "#";
+        buttonText = "";
+        break;
+    }
+  }
+  
 
   return (
     <div className="page-title-container">
       <h1 className="page-title">{title}</h1>
       {buttonText && (
-        <button
+        <NavLink
+          to={addLink}
           className="add-user-button"
-          onClick={onAddClick}
           title={buttonText}
         >
           <FontAwesomeIcon icon={faPlus} className="icon-add" />
           <span className="add-user-text">{buttonText}</span>
-        </button>
+        </NavLink>
       )}
     </div>
   );

@@ -1,15 +1,8 @@
-/* Employees.css */
 .employees-container {
   padding: 16px;
-  background-color: #f8f9fa; /* Light grey background */
+  background-color: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.employees-controls {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
 }
 
 .data-grid-container {

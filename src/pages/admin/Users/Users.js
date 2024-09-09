@@ -71,7 +71,7 @@ const Users = () => {
 
   return (
     <>
-      <PageTitle title="Users" onAddClick={handleAddUserClick} />
+      <PageTitle title="Users" page="list" />
       <div className="users-container">
         <div className="users-controls">
           <div className="table-search">

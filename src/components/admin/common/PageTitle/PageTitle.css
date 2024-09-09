@@ -9,6 +9,7 @@
   border-left: 6px solid;
   border-color: var(--primary-color);
   border-radius: 10px;
+  height: 50px;
 }
 
 .page-title {
@@ -25,6 +26,7 @@
   border: none;
   border-radius: 50px;
   color: white;
+  text-decoration: none; /* Remove underline from NavLink */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -48,10 +50,14 @@
 }
 
 @media (max-width: 768px) {
+  .page-title-container {
+    height: 40px;
+    padding: 5px;
+  }
   .add-user-button {
     padding: 8px;
     font-size: 14px;
-    border-radius: 50px;
+    border-radius: 40px;
   }
 
   .add-user-text {
