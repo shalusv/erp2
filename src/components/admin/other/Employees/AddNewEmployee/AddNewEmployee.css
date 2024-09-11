@@ -1,9 +1,22 @@
 /* src/pages/admin/Employees/AddNewEmployee/AddNewEmployee.css */
 
+.required {
+  color: red;
+}
+
+.error {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
 .form-title {
   font-size: 28px;
   margin-bottom: 20px;
-  color: #333;
+  color: var(--primary-color);
   text-align: center;
 }
 
@@ -13,20 +26,18 @@
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 800px;
   margin: 0 auto;
   border-top: solid 2px var(--primary-color);
-
 }
 
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns by default */
+  grid-template-columns: repeat(2, 1fr); 
   gap: 20px;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .form-group label {
@@ -72,45 +83,17 @@
   gap: 15px;
 }
 
-.btn-cancel,
-.btn-save {
+.custom-save-button {
   padding: 12px 24px;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 50px;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
 }
 
-.btn-cancel {
-  background-color: #f44336;
-  color: #fff;
-}
-
-.btn-save {
-  background-color: #4caf50;
-  color: #fff;
-}
-
-.btn-cancel:hover {
-  background-color: #e53935;
-}
-
-.btn-save:hover {
+.custom-save-button:hover {
   background-color: #388e3c;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .form-grid {
-    grid-template-columns: 1fr; /* One column on small screens */
-  }
-
-  .gender-group {
-    grid-column: 1 / -1; /* Ensure radio buttons take full width on small screens */
-  }
-
-  .form-actions {
-    justify-content: center; /* Center the buttons on small screens */
-  }
 }

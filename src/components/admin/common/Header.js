@@ -83,7 +83,7 @@ const Header = ({ isCollapsed, onToggle }) => {
           <FaSearch className="search-icon" />
           <input
             type="text"
-            className="search-input"
+            className="main-search-input"
             placeholder="Search..."
             value={searchTerm}
             onChange={handleSearchChange}
